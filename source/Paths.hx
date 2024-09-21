@@ -73,6 +73,11 @@ class Paths
 		}
 		// run the garbage collector for good measure lmfao
 		System.gc();
+		#if cpp
+		cpp.NativeGc.run(true);
+		#elseif hl
+		hl.Gc.major();
+		#end
 	}
 
 	// define the locally tracked assets
@@ -390,7 +395,7 @@ class Paths
 		gottenPath = gottenPath.substring(gottenPath.indexOf(':') + 1, gottenPath.length);
 		// trace(gottenPath);
 		if (!currentTrackedSounds.exists(gottenPath))
-			currentTrackedSounds.set(gottenPath, Sound.fromFile('./' + gottenPath));
+			currentTrackedSounds.set(gottenPath, Sound.fromFile(gottenPath));
 		localTrackedAssets.push(key);
 		return currentTrackedSounds.get(gottenPath);
 	}
@@ -398,7 +403,7 @@ class Paths
 	#if MODS_ALLOWED
 	inline static public function mods(key:String = '')
 	{
-		return 'mods/' + key;
+		return Sys.getCwd() + 'mods/' + key;
 	}
 
 	inline static public function modsFont(key:String)
@@ -451,7 +456,7 @@ class Paths
 				return fileToCheck;
 			}
 		}
-		return 'mods/' + key;
+		return Sys.getCwd() + 'mods/' + key;
 	}
 
 	static public function getModDirectories():Array<String>
