@@ -1,19 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="home">
-	<!-- Created with Adobe Animate version 21.0.6.41649 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="card0000" x="0" y="0" width="1280" height="720"/>
-	<SubTexture name="card0001" x="1280" y="0" width="1280" height="720"/>
-	<SubTexture name="card0002" x="2560" y="0" width="1280" height="720"/>
-	<SubTexture name="card0003" x="0" y="720" width="1280" height="720"/>
-	<SubTexture name="card0004" x="1280" y="720" width="1280" height="720"/>
-	<SubTexture name="card0005" x="2560" y="720" width="1280" height="720"/>
-	<SubTexture name="card0006" x="0" y="1440" width="1280" height="720"/>
-	<SubTexture name="card0007" x="1280" y="1440" width="1280" height="720"/>
-	<SubTexture name="card0008" x="2560" y="1440" width="1280" height="720"/>
-	<SubTexture name="card0009" x="0" y="2160" width="1280" height="720"/>
-	<SubTexture name="card0010" x="1280" y="2160" width="1280" height="720"/>
-	<SubTexture name="card0011" x="2560" y="2160" width="1280" height="720"/>
-	<SubTexture name="card0012" x="0" y="2880" width="1280" height="720"/>
-	<SubTexture name="card0013" x="1280" y="2880" width="1280" height="720"/>
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="home.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="card0000" x="635" y="254" width="633" height="253" frameX="-322" frameY="-234" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0001" x="636" y="508" width="633" height="253" frameX="-322" frameY="-234" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0002" x="1270" y="0" width="637" height="251" frameX="-320" frameY="-235" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0003" x="0" y="1014" width="637" height="251" frameX="-320" frameY="-235" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0004" x="0" y="508" width="636" height="253" frameX="-320" frameY="-234" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0005" x="0" y="761" width="636" height="253" frameX="-320" frameY="-234" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0006" x="635" y="0" width="635" height="254" frameX="-321" frameY="-234" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0007" x="0" y="0" width="635" height="254" frameX="-321" frameY="-234" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0008" x="0" y="254" width="635" height="254" frameX="-321" frameY="-234" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0009" x="1270" y="251" width="637" height="251" frameX="-320" frameY="-235" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0010" x="1270" y="502" width="637" height="251" frameX="-320" frameY="-235" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0011" x="1270" y="1005" width="633" height="252" frameX="-322" frameY="-234" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0012" x="636" y="761" width="633" height="252" frameX="-322" frameY="-234" frameWidth="1280" frameHeight="720"/>
+	<SubTexture name="card0013" x="1270" y="753" width="633" height="252" frameX="-322" frameY="-234" frameWidth="1280" frameHeight="720"/>
 </TextureAtlas>
