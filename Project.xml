@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Doki Doki Takeover! - BAD ENDING" file="BadEnding" package="com.teamtbd.dokitakeover" main="Main" version="1.5.1 - The Unfair Update" company="TeamTBD" />
+	<app title="Friday Night Funkin': Doki Doki Takeover! - BAD ENDING" file="BadEnding" package="com.teamtbd.dokitakeoverbedending" main="Main" version="1.5.1 - The Unfair Update" company="TeamTBD" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -31,8 +31,8 @@
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" vsync="false"/>
 
 	<!--Mobile-specific-->
-	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
-
+	<window if="mobile" orientation="landscape" fullscreen="true" resizable="false" allow-shaders="true" require-shaders="true" allow-high-dpi="true" />
+	
 	<!--Switch-specific-->
 	<window if="switch" orientation="landscape" fullscreen="true" width="0" height="0" resizable="true" />
 
@@ -45,12 +45,12 @@
 	<classpath name="source" />
 
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
-	<define name="MODS_ALLOWED" if="desktop" />
-	<define name="LUA_ALLOWED" if="desktop" />
+	<define name="MODS_ALLOWED" if="desktop || mobile" />
+	<define name="LUA_ALLOWED" if="desktop || mobile" />
 	<!-- <define name="ACHIEVEMENTS_ALLOWED" /> -->
-	<define name="VIDEOS_ALLOWED" if="web || windows" unless="32bits"/>
+	<define name="VIDEOS_ALLOWED" if="web || windows || mobile" unless="32bits"/>
 	<define name="PSYCH_WATERMARKS"/>
-	<define name="CRASH_HANDLER" if="desktop release" />
+	<define name="CRASH_HANDLER" if="desktop release || mobile" />
 	<!-- DELETE THIS TO REMOVE WATERMARKS ON TITLE SCREEN -->
 
 	<!-- DONT ENABLE THIS -->
@@ -74,8 +74,6 @@
 		<library name="doki" preload="false" />
 	</section>
 
-	<assets path="plugins/" rename='' if="VIDEOS_ALLOWED windows" />
-	<assets path="dlls/" rename='' if="VIDEOS_ALLOWED windows" />
 	<assets path="assets/videos" library="videos" if="VIDEOS_ALLOWED"/>
 
 	<assets path="assets/preload" rename="assets" />
@@ -107,6 +105,8 @@
 
 	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui" />
+	<haxelib name="extension-androidtools" if="android"/>
+	<haxelib name="hxvlc" if="VIDEOS_ALLOWED"/>
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
 	<!-- <haxelib name="faxe" if='switch'/> -->
 	<!--<haxelib name="polymod"/> -->
@@ -157,6 +157,11 @@
 
 	<!-- _________________________________ Custom _______________________________ -->
 
+	<section if="android">
+			<!-- Do whatever you want I'm tired uninstall and install everytime -->
+			<certificate path="key.keystore" password="psychengine" alias="psychport" alias-password="psychengine" unless="debug" />
+	</section>
+		
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
 
 	<icon path="art/icon16.png" size='16'/>
