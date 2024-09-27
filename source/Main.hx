@@ -92,11 +92,30 @@ class Main extends Sprite
 		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
 
 		fpsVar = new FPSCounter(10, 3, 0xFFFFFF);
+		#if !mobile
 		addChild(fpsVar);
+		#else
+		FlxG.game.addChild(fpsVar);
+		#end
 
 		if (fpsVar != null)
 			fpsVar.visible = ClientPrefs.showFPS;
 
+		FlxG.signals.preStateSwitch.add(function() {
+			Paths.clearStoredMemory(true);
+			FlxG.bitmap.dumpCache();
+
+			var cache = cast(Assets.cache, AssetCache);
+			for (key => font in cache.font)
+				cache.removeFont(key);
+			for (key => sound in cache.sound)
+				cache.removeSound(key);
+
+		});
+		FlxG.signals.postStateSwitch.add(function() {
+			Paths.clearUnusedMemory();
+		});
+		
 		#if html5
 		FlxG.mouse.visible = false;
 		#end
