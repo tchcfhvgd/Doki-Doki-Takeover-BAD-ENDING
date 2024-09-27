@@ -318,7 +318,7 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-		Paths.clearStoredMemory();
+		//Paths.clearStoredMemory();
 
 		// for lua
 		instance = this;
@@ -1358,7 +1358,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		Paths.clearUnusedMemory();
+		//Paths.clearUnusedMemory();
 	}
 
 	function set_songSpeed(value:Float):Float
