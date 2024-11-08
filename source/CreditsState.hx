@@ -200,6 +200,10 @@ class CreditsState extends MusicBeatState
 
 		changeSelection();
 		super.create();
+
+		#if mobile
+                addVirtualPad(UP_DOWN, A_B);
+                #end
 	}
 
 	override function update(elapsed:Float)
