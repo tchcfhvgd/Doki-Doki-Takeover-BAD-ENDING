@@ -111,12 +111,12 @@ class TitleState extends MusicBeatState
 		}
 		#end
 
-		#if (desktop && MODS_ALLOWED)
+		#if (MODS_ALLOWED)
 		var path = "mods/" + Paths.currentModDirectory + "/images/gfDanceTitle.json";
 		// trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path))
 		{
-			path = "mods/images/gfDanceTitle.json";
+			path = Sys.getCwd() + "mods/images/gfDanceTitle.json";
 		}
 		// trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path))
@@ -128,25 +128,6 @@ class TitleState extends MusicBeatState
 		#else
 		var path = Paths.getPreloadPath("images/gfDanceTitle.json");
 		titleJSON = Json.parse(Assets.getText(path));
-		#end
-
-		#if (polymod && !html5)
-		if (sys.FileSystem.exists('mods/'))
-		{
-			var folders:Array<String> = [];
-			for (file in sys.FileSystem.readDirectory('mods/'))
-			{
-				var path = haxe.io.Path.join(['mods/', file]);
-				if (sys.FileSystem.isDirectory(path))
-				{
-					folders.push(file);
-				}
-			}
-			if (folders.length > 0)
-			{
-				polymod.Polymod.init({modRoot: "mods", dirs: folders});
-			}
-		}
 		#end
 
 		FlxG.game.focusLostFramerate = 60;
@@ -279,12 +260,12 @@ class TitleState extends MusicBeatState
 
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 
-		#if (desktop && MODS_ALLOWED)
-		var path = "mods/" + Paths.currentModDirectory + "/images/logoBumpin.png";
+		#if (MODS_ALLOWED)
+		var path = Sys.getCwd() + "mods/" + Paths.currentModDirectory + "/images/logoBumpin.png";
 		// trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path))
 		{
-			path = "mods/images/logoBumpin.png";
+			path = Sys.getCwd() + "mods/images/logoBumpin.png";
 		}
 		// trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path))
@@ -306,12 +287,12 @@ class TitleState extends MusicBeatState
 		swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
 
-		#if (desktop && MODS_ALLOWED)
-		var path = "mods/" + Paths.currentModDirectory + "/images/gfDanceTitle.png";
+		#if (MODS_ALLOWED)
+		var path = Sys.getCwd() + "mods/" + Paths.currentModDirectory + "/images/gfDanceTitle.png";
 		// trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path))
 		{
-			path = "mods/images/gfDanceTitle.png";
+			path = Sys.getCwd() + "mods/images/gfDanceTitle.png";
 			// trace(path, FileSystem.exists(path));
 		}
 		if (!FileSystem.exists(path))
@@ -333,12 +314,12 @@ class TitleState extends MusicBeatState
 		add(logoBl);
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
-		#if (desktop && MODS_ALLOWED)
-		var path = "mods/" + Paths.currentModDirectory + "/images/titleEnter.png";
+		#if (MODS_ALLOWED)
+		var path = Sys.getCwd() + "mods/" + Paths.currentModDirectory + "/images/titleEnter.png";
 		// trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path))
 		{
-			path = "mods/images/titleEnter.png";
+			path = Sys.getCwd() + "mods/images/titleEnter.png";
 		}
 		// trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path))
