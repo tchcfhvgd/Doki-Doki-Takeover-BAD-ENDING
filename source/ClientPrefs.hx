@@ -23,7 +23,7 @@ class ClientPrefs
 	public static var fullscreen:Bool = false;
 	public static var cursing:Bool = true;
 	public static var violence:Bool = true;
-	public static var padalpha:Float = 0.6;
+	public static var padalpha:Float = 0.3;
 	public static var hitboxalpha:Float = 0.5;
 	public static var mobileCEx:Bool = false;
 	public static var hitboxType:String = "Gradient";
@@ -38,7 +38,7 @@ class ClientPrefs
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
-	public static var controllerMode:Bool = false;
+	public static var controllerMode:Bool = true;
 	public static var hitsoundVolume:Float = 0;
 	public static var autoPause:Bool = false;
 	public static var storycomplete:Bool = false;
