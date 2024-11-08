@@ -48,14 +48,29 @@ class OptionsState extends MusicBeatState
 		switch (label)
 		{
 			case 'Note Colors':
+				#if mobile
+				removeVirtualPad();
+				#end
 				openSubState(new options.NotesSubState());
 			case 'Controls':
+				#if mobile
+				removeVirtualPad();
+				#end
 				openSubState(new options.ControlsSubState());
 			case 'Graphics':
+				#if mobile
+				removeVirtualPad();
+				#end
 				openSubState(new options.GraphicsSettingsSubState());
 			case 'Visuals and UI':
+				#if mobile
+				removeVirtualPad();
+				#end
 				openSubState(new options.VisualsUISubState());
 			case 'Gameplay':
+				#if mobile
+				removeVirtualPad();
+				#end
 				openSubState(new options.GameplaySettingsSubState());
 			case 'Adjust Delay and Combo':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
@@ -104,12 +119,20 @@ class OptionsState extends MusicBeatState
 		ClientPrefs.saveSettings();
 
 		super.create();
+
+		#if mobile
+                addVirtualPad(UP_DOWN, A_B_X_Y);
+                #end
 	}
 
 	override function closeSubState()
 	{
 		super.closeSubState();
 		ClientPrefs.saveSettings();
+		#if mobile
+                removeVirtualPad();
+		addVirtualPad(UP_DOWN, A_B_X_Y);
+                #end
 	}
 
 	override function update(elapsed:Float)
@@ -135,6 +158,18 @@ class OptionsState extends MusicBeatState
 		{
 			openSelectedSubstate(options[curSelected]);
 		}
+
+		#if mobile
+	 if (virtualPad.buttonX.justPressed)
+		{
+			removeVirtualPad();
+			openSubState(new mobile.MobileControlsSubState());
+		}
+		if (virtualPad.buttonY.justPressed) {
+			removeVirtualPad();
+			openSubState(new mobile.AndroidSettingsSubState());
+		}
+	#end
 	}
 
 	function changeSelection(change:Int = 0)
