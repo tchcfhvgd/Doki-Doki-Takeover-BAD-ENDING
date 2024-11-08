@@ -82,6 +82,7 @@
 	<assets path="assets/doki" library="doki" />
 
 	<!-- <assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/> -->
+	<assets path="mobile" rename="assets/mobile" if="mobile"/>
 	<assets path='art/readme.txt' rename='fnf_readme.txt' />
 	<assets path='LICENSE' rename='LICENSE.txt' />
 	<!-- <template path='mods' /> -->
