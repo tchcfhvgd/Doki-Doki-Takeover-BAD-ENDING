@@ -34,6 +34,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		title = 'Graphics';
 		rpcTitle = 'Graphics Settings Menu'; // for Discord Rich Presence
 
+		#if !mobile
 		var option:Option = new Option('Fullscreen',
 			'If checked, runs the game in fullscreen.',
 			'fullscreen',
@@ -41,6 +42,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			false);
 		option.onChange = onChangeFullscreen;
 		addOption(option);
+		#end
 
 		#if !html5 // Apparently other framerates isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		var option:Option = new Option('Framerate', "Pretty self explanatory, isn't it?", 'framerate', 'int', 60);
