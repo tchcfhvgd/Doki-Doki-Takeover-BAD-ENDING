@@ -167,7 +167,7 @@ class MainMenuState extends MusicBeatState
 				menuItem.x = 50;
 		}
 
-		changeTxt = new FlxText(58, menuItems.members[0].y + 33, 0, 'Press CTRL to open Gameplay Changers', 14);
+		changeTxt = new FlxText(58, menuItems.members[0].y + 33, 0, 'Press C to open Gameplay Changers', 14);
 		changeTxt.setFormat(Paths.font("riffic.ttf"), 14, FlxColor.WHITE, LEFT);
 		changeTxt.setBorderStyle(OUTLINE, 0xFFFF0513, 1.25);
 		changeTxt.antialiasing = ClientPrefs.globalAntialiasing;
@@ -210,8 +210,20 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		super.create();
+
+		#if mobile
+                addVirtualPad(UP_DOWN, A_B_C);
+                #end
 	}
 
+	override function closeSubState() {
+		super.closeSubState();
+		#if mobile
+		removeVirtualPad();
+		addVirtualPad(UP_DOWN, A_B_C);
+		#end
+	}
+	
 	var selectedSomethin:Bool = false;
 
 	override function update(elapsed:Float)
@@ -221,7 +233,7 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			var ctrl = FlxG.keys.justPressed.CONTROL;
+			var ctrl = FlxG.keys.justPressed.CONTROL #if mobile || virtualPad.buttonC.justPressed #end;
 
 			#if debug
 			if (FlxG.keys.justPressed.O)
@@ -257,6 +269,9 @@ class MainMenuState extends MusicBeatState
 			if (ctrl && curSelected == 0)
 			{
 				openSubState(new GameplayChangersSubstate());
+				#if mobile
+				removeVirtualPad();
+				#end
 			}
 
 			if (controls.ACCEPT)
