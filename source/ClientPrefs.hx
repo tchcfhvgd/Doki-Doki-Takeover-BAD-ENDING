@@ -23,6 +23,11 @@ class ClientPrefs
 	public static var fullscreen:Bool = false;
 	public static var cursing:Bool = true;
 	public static var violence:Bool = true;
+	public static var padalpha:Float = 0.6;
+	public static var hitboxalpha:Float = 0.5;
+	public static var mobileCEx:Bool = false;
+	public static var hitboxType:String = "Gradient";
+	public static var hitboxPos:Bool = true;
 	public static var camZooms:Bool = true;
 	public static var hideHud:Bool = false;
 	public static var noteOffset:Int = 0;
@@ -120,6 +125,11 @@ class ClientPrefs
 		// FlxG.save.data.violence = violence;
 		//FlxG.save.data.camZooms = camZooms;
 		FlxG.save.data.noteOffset = noteOffset;
+		FlxG.save.data.hitboxalpha = hitboxalpha;
+		FlxG.save.data.padalpha = padalpha;
+		FlxG.save.data.mobileCEx = mobileCEx;
+		FlxG.save.data.hitboxType = hitboxType;
+		FlxG.save.data.hitboxPos = hitboxPos;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.imagesPersist = imagesPersist;
@@ -235,6 +245,21 @@ class ClientPrefs
 		{
 			FlxG.updateFramerate = framerate;
 			FlxG.drawFramerate = framerate;
+		}
+		if(FlxG.save.data.mobileCEx != null) {
+			mobileCEx = FlxG.save.data.mobileCEx;
+		}
+		if(FlxG.save.data.hitboxType != null) {
+			hitboxType = FlxG.save.data.hitboxType;
+		}
+		if(FlxG.save.data.hitboxPos != null) {
+			hitboxPos = FlxG.save.data.hitboxPos;
+		}
+		if(FlxG.save.data.hitboxalpha != null) {
+			hitboxalpha = FlxG.save.data.hitboxalpha;
+		}
+		if(FlxG.save.data.padalpha != null) {
+			padalpha = FlxG.save.data.padalpha;
 		}
 		if (FlxG.save.data.fullscreen != null)
 		{
