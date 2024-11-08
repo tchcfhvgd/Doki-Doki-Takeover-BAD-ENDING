@@ -25,6 +25,10 @@ class FlashingState extends MusicBeatState
 		bg.screenCenter(X);
 		FlxTween.tween(bg, {alpha: 1}, 1, {ease: FlxEase.quadOut});
 		add(bg);
+
+		#if mobile
+                addVirtualPad(NONE, A);
+                #end
 	}
 
 	override function update(elapsed:Float)
