@@ -199,6 +199,11 @@ class NoteOffsetState extends MusicBeatState
 		FlxG.sound.playMusic(Paths.music('offsetSong'), 1, true);
 
 		super.create();
+
+		#if android
+                addVirtualPad(LEFT_RIGHT, A_B_C);
+                addVirtualPadCamera(false);
+                #end
 	}
 
 	var holdTime:Float = 0;
@@ -303,7 +308,7 @@ class NoteOffsetState extends MusicBeatState
 				}
 			}
 
-			if (controls.RESET)
+			if (controls.RESET #if mobile || virtualPad.buttonC.justPressed #end)
 			{
 				for (i in 0...ClientPrefs.comboOffset.length)
 				{
@@ -343,7 +348,7 @@ class NoteOffsetState extends MusicBeatState
 				updateNoteDelay();
 			}
 
-			if (controls.RESET)
+			if (controls.RESET #if mobile || virtualPad.buttonC.justPressed #end)
 			{
 				holdTime = 0;
 				barPercent = 0;
@@ -490,9 +495,9 @@ class NoteOffsetState extends MusicBeatState
 		beatText.visible = !onComboMenu;
 
 		if (onComboMenu)
-			changeModeText.text = '< Combo Offset (Press Accept to Switch) >';
+			changeModeText.text = '< Combo Offset (Press A to Switch) >';
 		else
-			changeModeText.text = '< Note/Beat Delay (Press Accept to Switch) >';
+			changeModeText.text = '< Note/Beat Delay (Press A to Switch) >';
 
 		changeModeText.text = changeModeText.text.toUpperCase();
 		FlxG.mouse.visible = onComboMenu;
