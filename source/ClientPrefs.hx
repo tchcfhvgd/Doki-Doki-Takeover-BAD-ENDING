@@ -14,7 +14,7 @@ class ClientPrefs
 	public static var noteCamera:Float = 1;
 	public static var showFPS:Bool = false;
 	public static var flashing:Bool = true;
-	public static var gpuTextures:Bool = false;
+	public static var gpuTextures:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
 	public static var lowQuality:Bool = false;
