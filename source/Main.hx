@@ -106,13 +106,6 @@ class Main extends Sprite
 		FlxG.signals.preStateSwitch.add(function() {
 			Paths.clearStoredMemory(true);
 			FlxG.bitmap.dumpCache();
-
-			var cache = cast(Assets.cache, AssetCache);
-			for (key => font in cache.font)
-				cache.removeFont(key);
-			for (key => sound in cache.sound)
-				cache.removeSound(key);
-
 		});
 		FlxG.signals.postStateSwitch.add(function() {
 			Paths.clearUnusedMemory();
