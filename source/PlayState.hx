@@ -642,7 +642,7 @@ class PlayState extends MusicBeatState
 				evilPoem.visible = false;
 				add(evilPoem);
 
-				bloodyBG = new BGSprite('bgBlood', -20, 200, 1, 1, ['bgBlood'], false);
+				bloodyBG = new BGSprite('bgBlood', 0, 200, 1, 1, ['bgBlood'], false);
 				bloodyBG.animation.addByPrefix('bgBlood', 'bgBlood', 12, false);
 				bloodyBG.setGraphicSize(Std.int(bloodyBG.width * 2.6));
 				bloodyBG.alpha = 0.001;
